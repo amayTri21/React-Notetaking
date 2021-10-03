@@ -36,3 +36,162 @@
     transform: rotate(360deg);
   }
 }
+.topnav {
+  width: 100%;
+  align-items: right;
+  font-size: 20px;
+   padding:10px;
+   display: inline-block;
+   background-color: gold;
+   color:black;
+
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topnav a:hover {
+  background-color:orange;
+  color: black;
+  transition: all 0.4s ease-in-out;
+
+}
+form,body {
+  width: 100%;
+  
+}
+body{
+  background-color:aquamarine;
+}
+
+.loginBox {
+  width: 40%;
+  height: 10%;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  padding: 40px;
+  background-color: rgb(218, 189, 26);
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);
+}
+@media screen and (max-width: 550px) {
+  .loginBox {
+    width: 85%;
+  }
+}
+input[type=text],input[type=password],input[type=number],input[type=email] {
+  width: 40%;
+  height: fit-content;
+  padding: 15px;
+  margin: 5px 7px 22px 0;
+  display: inline-block;
+  border: none;
+  background:khaki;
+}
+
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: rgb(38, 238, 228);
+  outline: none;
+  }
+
+.btns{
+  background-color: rgba(255, 0, 0, 0.87);
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+.b1{
+  background-color: rgb(77, 204, 221);
+  width:50px;
+}
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+}
+.login{
+  text-align: center;
+  font-style:italic;
+  color:blue;
+  position: relative;
+  top: 65px;
+}
+
+.note{
+  width: 350px;
+  height: 150px;
+  color:red;
+}
+.notebox{
+ position: relative;
+ top:30px;
+ left: 300px;
+
+}
+.cardnote{
+
+  background-color: aqua;
+}
+#maincard{
+  background-color: aqua;
+}
+.buttons{
+  width:100px;
+  height:auto;
+  display:inline-block;
+  margin-top:38px;
+  margin-bottom:40px;
+  margin-left:38px;
+  background-color:goldenrod;
+  color: whitesmoke;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.title{
+  width: 40%;
+  height: fit-content;
+  padding: 15px;
+  margin: 5px 7px 22px 0;
+  display: inline-block;
+  border: none;
+  background:khaki;
+}
+.box{
+
+  position:relative;
+  left:100px;
+  margin-left: 50px;
+  padding-left: 100px;
+}
+
+#faedit{
+  margin-top:38px;
+  margin-bottom:40px;
+  margin-left:38px;
+  font-size: 25px;
+}
+.submit{
+  size: 5px;
+  background-color: aqua;
+}
+#card{
+  size: 10px;
+}
+#navlogout{
+  position: relative;
+  left:400px;
+}
