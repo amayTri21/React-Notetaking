@@ -6,12 +6,10 @@ import { NoteContext } from './NoteContext';
 import { UserContext } from './UserContext';
 import { AddRequest } from './AddRequest';
 import { EditRequest } from './EditRequest';
-
-
+import { showSuccess } from './CommonAlert';
 const Notes = () => {
   var jsonString = localStorage.getItem("amay");
   var login = JSON.parse(jsonString);
-
 
   const Amay = [
     {
@@ -26,7 +24,7 @@ const Notes = () => {
 
   const [notebook, Setnotebook] = useContext(NoteContext)
 
-  const [action, Setaction] = useState()
+  
 
   const [useravailable,Setuseravailable] = useState([])
   const [userlist, Setuserlist] = useState([{ "roleId": "101", "roleName": "Contributor" }, { "roleId": "102", "roleName": "Reader" }])
@@ -69,7 +67,7 @@ const Notes = () => {
       setFlag1('')
       setValueFor('')
       setRoleId([])
-      setUploadedUser([])
+      setUploadedUser('')
     }
 
 
@@ -78,12 +76,6 @@ const Notes = () => {
 
 
   }, []);
-
-
-
-
-
-
 
 
   const logout = () =>{
@@ -123,8 +115,8 @@ const Notes = () => {
          Settitle('')
          Setnote('')
          setFlag1('')
-history.push('./mynotes')
-      }
+     history.push('./mynotes')
+     }
       else {
         setWriteNote(true)
       }
@@ -138,9 +130,10 @@ history.push('./mynotes')
   const submitUserList = () => {
 
     var selecteduser = document.getElementById("selectuser").value;
-    const am = RegisteredUser.filter((item) => item.name==selecteduser)
-    Setuseravailable(am)
-    setUploadedUser(am)
+    console.log(selecteduser)
+    // const am = RegisteredUser.filter((item) => item.name == selecteduser)
+    // Setuseravailable(am)
+    setUploadedUser(selecteduser)
   
 
     if (title!='' && note!='')
@@ -153,7 +146,7 @@ history.push('./mynotes')
  } 
    else{   
         var Request = {
-          "noteTitle": title,
+          "title": title,
           "note": note,
           "userList":useravailable,
           "roleId": RoleId,
@@ -174,6 +167,7 @@ else{
     
              }   
          console.log("Note added successfully.")
+        showSuccess("Note created sucessfully")
          
          Setowner(login.name)
          Setnote('')

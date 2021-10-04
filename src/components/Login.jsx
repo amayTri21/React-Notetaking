@@ -19,7 +19,7 @@ const Login = () => {
         var name1 = document.getElementById("name").value;
        const amay = user.filter((item) => item.name==name1 && item.email==email1)
         console.log(amay)
-        if(amay.length==1){
+        if(amay.length==1 || amay.length==2){
             history.push('/notes')
         }
        else{
@@ -33,7 +33,7 @@ const Login = () => {
             <h1 className="login">Login Form</h1>
 
 <div className="loginBox">
-            <form >
+            <form>
 
             <label>Name</label><br></br>
           <input type="text" name="name" placeholder=" Enter Name" id ="name"></input><br></br>

@@ -25,7 +25,7 @@ const AssignNotes = () => {
      
       const updateNote =(key,title,note,roleId,uploadedUser,ownerName)=>{
         let ViewEditRequest={
-          "mainTitle":title,
+          "title":title,
           "note":note,
           
           "roleId":roleId,
@@ -35,7 +35,7 @@ const AssignNotes = () => {
           "editOwnerName":ownerName
         }
         SetEditViewRequest(ViewEditRequest)
-      history.push("./AddNote")
+      history.push("./Note")
       }
       
    
@@ -89,8 +89,8 @@ const AssignNotes = () => {
          <thead>
         
             <tr>
-              <th>Name</th>
-              <th>Description</th>
+              <th>Title</th>
+              <th>Note</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -111,15 +111,15 @@ const AssignNotes = () => {
                   <tr key={key}>
         
         
-        {item.uploadedUser == login.name ? <td  data-th="Note Name" > {item.noteName}</td>  :''}         
-        {item.uploadedUser== login.name ?  <td data-th="Note Desc">{item.noteDesc}</td> :''}
+        {item.uploadedUser == login.name ? <td> {item.title}</td>  :''}         
+        {item.uploadedUser == login.name ?  <td>{item.note}</td> :''}
                     
         {item.uploadedUser==login.name ?
                     <td data-th="Action">
                 {item.roleId=="101" ?      <a className="edit-icon"
                         onClick={(e)=>updateNote(key,item.title,item.note,item.roleId,item.uploadedUser,item.ownerName)}
                         > <i className="fa fa-pencil "></i> </a>:
-                        <a className="black-text" onClick={(e)=>openModal(e,item.not)}>View</a>}
+                        <a className="black-text" onClick={(e)=>openModal(e,item.note)}>View</a>}
                     </td>:''}
                     
         
@@ -135,8 +135,7 @@ const AssignNotes = () => {
         </section>
         </div>
 
-            )
-        
+      
 
             
         </div>
