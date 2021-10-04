@@ -122,6 +122,7 @@ const MyNote =() =>{
     var login = JSON.parse(jsonString);
 const[AddNoteRequest,SetAddNoteRequest] = useContext(AddRequest)
 const[ViewEditRequest,SetViewEditRequest] = useContext(EditRequest)
+const[flag2,SetFlag2] = useState(true)
 const history = useHistory()
 
 const deleteNote =(e,key) =>{
@@ -135,7 +136,7 @@ const updateNote =(key,title,note,roleId,uploadedUser,ownerName)=>{
       "title":title,
       "note":note,
     "roleId":roleId,
-    "uploadedUser":uploadedUser,
+    "uploadedUser1":uploadedUser,
     "flag":1,
     "index":key,
     "editOwnerName":ownerName
@@ -150,7 +151,7 @@ const onAddNotePage=()=>{
     "note":"",
     
     "roleId":[],
-    "uploadedUser":"",
+    "uploadedUser1":"",
     "editOwnerName":"",
     "ownerName":"",
   
@@ -170,13 +171,14 @@ useEffect(()=>{
       
         <section id="main-content">
 
-        <section className="wrapper">
+        <section className="wrapper"><br/><br/>
         <div className="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+        <a className="btn btn-success" style={{"margin-left": "850px","width": "130px"}} onClick={(e)=>onAddNotePage(e)}><span style={{color:"white"}}>+ Add Note</span></a>
        
        
 
 <div className="mt">
-<div className="tbl-holder">
+<div className="tbl-holder"><br/><br/><br/>
 <table className="table table-striped table-advance table-hover table-bordered tbl-ticker tbl-hhide">
  <thead>
 
@@ -203,7 +205,7 @@ useEffect(()=>{
             
              {item.ownerName==login.name ?
             <td data-th="Action">
-      <a className="edit-icon" onClick={(e)=>updateNote(key,item.title,item.note,item.roleId,item.uploadedUser,item.ownerName)} > <i className="fa fa-pencil "></i> </a>
+      <a className="edit-icon" onClick={(e)=>updateNote(key,item.title,item.note,item.roleId,item.uploadedUser1,item.ownerName)} > <i className="fa fa-pencil "></i> </a>
         <a className="delete-icon" onClick={(e)=>deleteNote(e,key)}> <i className="fa fa-trash-o "></i> </a>
 
             </td>:''}
@@ -214,6 +216,8 @@ useEffect(()=>{
       })}</tbody>
 
   </table>
+
+  
 </div>
 </div>
 </div>

@@ -27,27 +27,32 @@ const AssignNotes = () => {
         let ViewEditRequest={
           "title":title,
           "note":note,
-          
           "roleId":roleId,
-          "uploadedUser":uploadedUser,
+          "uploadedUser1":uploadedUser,
           "flag":1,
           "index":key,
           "editOwnerName":ownerName
-        }
-        SetEditViewRequest(ViewEditRequest)
+        
+           }
+
+      SetEditViewRequest(ViewEditRequest)
       history.push("./Note")
-      }
+
+    }
       
    
 
      const  openModal =(e,mainNote) =>{
+      
       setDisplayNote(true)
-       setNoteDisplay(mainNote)
-      }
+      setNoteDisplay(mainNote)
+        
+    }
 
       const modalClose= (e)=>{
-        setDisplayNote(false)
-      }
+      setDisplayNote(false)
+      
+    }
     return (
         <div>
             <h1>Assign</h1>
@@ -96,28 +101,24 @@ const AssignNotes = () => {
           </thead>
         </table>
     
-        
           <table className="table table-striped table-advance table-hover table-bordered tbl-ticker mob-tbl">
-            <tbody>
+        <tbody>
         
         
               {AddNoteRequest.map(function (item, key) {
-        
           
-                
-        
-                return (
+          return (
         
                   <tr key={key}>
         
         
-        {item.uploadedUser == login.name ? <td> {item.title}</td>  :''}         
-        {item.uploadedUser == login.name ?  <td>{item.note}</td> :''}
+        {item.uploadedUser1 == login.name ? <td> {item.title}</td>  :''}         
+        {item.uploadedUser1 == login.name ?  <td>{item.note}</td> :''}
                     
-        {item.uploadedUser==login.name ?
+        {item.uploadedUser1==login.name ?
                     <td data-th="Action">
                 {item.roleId=="101" ?      <a className="edit-icon"
-                        onClick={(e)=>updateNote(key,item.title,item.note,item.roleId,item.uploadedUser,item.ownerName)}
+                        onClick={(e)=>updateNote(key,item.title,item.note,item.roleId,item.uploadedUser1,item.ownerName)}
                         > <i className="fa fa-pencil "></i> </a>:
                         <a className="black-text" onClick={(e)=>openModal(e,item.note)}>View</a>}
                     </td>:''}
@@ -127,18 +128,15 @@ const AssignNotes = () => {
                 )
               })}</tbody>
         
-          </table>
+        </table>
         </div>
         </div>
         </div>
         </section>
         </section>
         </div>
-
-      
-
-            
-        </div>
+         </div>
+    
     )
 }
 

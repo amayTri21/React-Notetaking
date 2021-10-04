@@ -28,17 +28,20 @@ const Notes = () => {
 
   const [useravailable,Setuseravailable] = useState([])
   const [userlist, Setuserlist] = useState([{ "roleId": "101", "roleName": "Contributor" }, { "roleId": "102", "roleName": "Reader" }])
-  const [mainNote, setMainNote] = useState('')
+
   const [ViewEditRequest, SetViewEditRequest] = useState(EditRequest)
   const [AddNoteRequest, SetAddNoteRequest] = useContext(AddRequest)
   const [RegisteredUser, SetUserRegistered] = useContext(UserContext)
   const [request, setrequest] = useState([])
-  const [writeNote, setWriteNote] = useState(false)
+  
   const [flag1, setFlag1] = useState()
   const [valuefor, setValueFor] = useState('')
-  const [uploadedUser, setUploadedUser] = useState('')
+
   const [owner, Setowner] = useState()
   const [RoleId, setRoleId] = useState()
+  const[uploadedUser,setUploadedUser] = useState('jignesh')
+
+  
 
 
 
@@ -91,13 +94,13 @@ const Notes = () => {
     Setnotebook(newNoteData);
     if (note) {
       if (flag1 == 1) {
-        setWriteNote(false)
+      
         var Request = {
           "noteTitle":title,
           "note": note,
           "userList": useravailable,
           "roleId": RoleId,
-          "uploadedUser":uploadedUser,
+          "uploadedUser1":"jignesh",
           "ownerName":owner,
            }
         console.log(Request)
@@ -118,7 +121,7 @@ const Notes = () => {
      history.push('./mynotes')
      }
       else {
-        setWriteNote(true)
+      
       }
     }
     else {
@@ -127,13 +130,18 @@ const Notes = () => {
       alert("Empty note cannot be uploaded.")
     }
   }
-  const submitUserList = () => {
+  const submitUserList = () =>{
 
     var selecteduser = document.getElementById("selectuser").value;
-    console.log(selecteduser)
-    // const am = RegisteredUser.filter((item) => item.name == selecteduser)
-    // Setuseravailable(am)
-    setUploadedUser(selecteduser)
+    
+
+  setUploadedUser(selecteduser)
+  
+
+    // console.log(selecteduser)
+    // // const am = RegisteredUser.filter((item) => item.name == selecteduser)
+    // // Setuseravailable(am)
+    // setUploadedUser(selecteduser)
   
 
     if (title!='' && note!='')
@@ -150,7 +158,7 @@ const Notes = () => {
           "note": note,
           "userList":useravailable,
           "roleId": RoleId,
-          "uploadedUser":uploadedUser,
+          "uploadedUser1":"jignesh",
           "ownerName":login.name
         }
           console.log(AddNoteRequest)
@@ -172,7 +180,7 @@ else{
          Setowner(login.name)
          Setnote('')
          Settitle('')
-         setWriteNote(false)
+       
          history.push('/mynotes')
       }
     }
@@ -217,7 +225,7 @@ else{
 
       <button className="btns" onClick={addnote}>Add</button>
       <div>
-        <br />
+        <br/>
 
         <label>Select User</label><br />
         <select id="selectuser"><br />
@@ -231,7 +239,7 @@ else{
         })   
          }
        
-        </select><br /><br />
+        </select><br /><br/>
        
    </div>
       <div>
